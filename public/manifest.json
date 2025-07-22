@@ -1,6 +1,6 @@
 {
-  "short_name": "Mode Faucet",
-  "name": "A fast and reliable Mode testnet faucet for blockchain developers",
+  "short_name": "Arbitrum Faucet",
+  "name": "A fast and reliable Arbitrum testnet faucet for blockchain developers",
   "icons": [
     {
       "src": "favicon.ico",

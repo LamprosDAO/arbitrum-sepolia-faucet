@@ -12,13 +12,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #fff;
-  color: #dffe00;
+  gap: 20px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+  color: #00d4ff;
   font-size: 1.5rem;
   font-weight: 900;
   font-family: "Chakra Petch", sans-serif;
   text-transform: uppercase;
+  padding: 0 20px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 212, 255, 0.02));
 }
+
+.navbar-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
+}
+
+.navbar-title {
+  color: #00d4ff;
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.single-step-container {
+  width: 100%;
+}
+
 .card_container {
   margin-top: 20px;
   width: 90%;
@@ -28,10 +52,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(0, 212, 255, 0.2);
   padding: 30px;
   flex-direction: row;
   backdrop-filter: blur(1px);
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(21, 22, 25, 0.8));
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
 }
 .card_container h1 {
   color: #fff;
@@ -41,12 +67,11 @@
   line-height: 120%;
   text-align: center;
   margin: 30px 0;
-  /* margin-top: 30px; */
 
   word-break: break-word;
 }
 .oops {
-  color: #dffe00;
+  color: #00d4ff;
 
   font-weight: 900;
   font-family: "Chakra Petch", sans-serif;
@@ -71,11 +96,26 @@ canvas {
   position: absolute;
 }
 @media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    height: auto;
+    padding: 15px 20px;
+  }
+  
+  .navbar-logo {
+    height: 45px;
+  }
+  
+  .navbar-title {
+    font-size: 1.2rem;
+  }
+  
   .card_container {
     margin-top: 20px;
     flex-direction: column-reverse;
-    border: none;
-    padding: 0%;
+    border: 2px solid rgba(0, 212, 255, 0.2);
+    padding: 20px;
   }
   .card_container h1 {
     width: 100%;

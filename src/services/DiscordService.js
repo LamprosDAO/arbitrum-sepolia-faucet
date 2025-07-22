@@ -5,7 +5,7 @@ function DiscordService() {
     const body = {
       content: "",
       tts: false,
-      color: "#dffe00",
+      color: "#00d4ff",
       embeds: [
         {
           title: "Faucet Claimed 🚰",
@@ -15,11 +15,11 @@ function DiscordService() {
     };
 
     try {
-      const data = await axios.post(
+      const response = await axios.post(
         process.env.REACT_APP_DISCORD_WEBHOOK_URL,
         body
       );
-      console.log(data);
+      console.log(response);
     } catch (error) {
       console.error(error);
     }

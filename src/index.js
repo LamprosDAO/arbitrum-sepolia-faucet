@@ -14,25 +14,25 @@ import { mainnet, polygon, optimism, arbitrum, base, zora } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 
-const modeTestnet = {
-  id: 919,
-  name: "Mode Testnet",
+const arbitrumSepolia = {
+  id: 421614,
+  name: "Arbitrum Sepolia",
   iconUrl: "https://chainlist.org/unknown-logo.png",
   iconBackground: "#000",
-  network: "Mode",
+  network: "Arbitrum",
   nativeCurrency: {
     decimals: 18,
-    name: "Mode Testnet",
+    name: "Arbitrum Sepolia ETH",
     symbol: "ETH",
   },
   rpcUrls: {
-    public: { http: ["https://sepolia.mode.network/"] },
-    default: { http: ["https://sepolia.mode.network/"] },
+    public: { http: ["https://sepolia-rollup.arbitrum.io/rpc"] },
+    default: { http: ["https://sepolia-rollup.arbitrum.io/rpc"] },
   },
 };
 
 const { chains, publicClient } = configureChains(
-  [modeTestnet],
+  [arbitrumSepolia],
   [
     alchemyProvider({ apiKey: process.env.REACT_APP_ALCHEMY_ID }),
     publicProvider(),
@@ -40,7 +40,7 @@ const { chains, publicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: "Mode Faucet",
+  appName: "Arbitrum Sepolia Faucet",
   projectId: "a3f023373862c88874cd67f89e0c2d87",
   chains,
 });
@@ -58,7 +58,7 @@ root.render(
     <RainbowKitProvider
       chains={chains}
       theme={midnightTheme({
-        accentColor: "#dffe00",
+        accentColor: "#00d4ff",
         accentColorForeground: "black",
         borderRadius: "medium",
         fontStack: "system",

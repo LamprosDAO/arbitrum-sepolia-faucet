@@ -2,182 +2,710 @@
 .custom-stepper {
   width: 100%;
 }
-.progress-bar-container {
+
+/* Telegram and Faucet Section Styles */
+.telegram-title {
+  color: #dffe00;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.telegram-section {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Wallet Connection Section */
+.wallet-connection-section {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
+  text-align: center;
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+  background: rgba(21, 22, 25, 0.5);
+  backdrop-filter: blur(1px);
+}
+
+.wallet-connection-section h2 {
+  color: #dffe00;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.wallet-description {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 600px;
+}
+
+.connect-btn-wallet-div {
+  margin: 20px 0;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.or-divider span {
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wallet-address-div {
+  width: 100%;
+  max-width: 400px;
+}
+
+.wallet-address-div input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  background-color: rgba(21, 22, 25, 0.8);
+  box-shadow: none;
+  color: white;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.wallet-address-div input:focus {
+  outline: none;
+  border-color: #dffe00;
+  background-color: rgba(21, 22, 25, 0.9);
+}
+
+.wallet-address-div input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.success_msg {
+  color: #4ade80;
+  border-left: 2px solid #4ade80;
+  padding-left: 10px;
+  margin-top: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.telegram-instructions,
+.faucet-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+  background: rgba(21, 22, 25, 0.5);
+  backdrop-filter: blur(1px);
+}
+
+.telegram-instructions h2,
+.faucet-section h2 {
+  color: #dffe00;
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.telegram-description,
+.faucet-description {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 600px;
+}
+
+.telegram-join-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #dffe00, #b8d600);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.telegram-join-btn:hover {
+  background: linear-gradient(135deg, #b8d600, #9fc200);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(223, 254, 0, 0.3);
+}
+
+.telegram-url {
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.telegram-url a {
+  color: #dffe00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.telegram-url a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Development Notice Styles */
+.recaptcha-placeholder {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.development-notice {
+  background: rgba(242, 104, 91, 0.1);
+  border: 2px solid rgba(242, 104, 91, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.development-notice p {
+  margin: 0;
+}
+
+.development-notice a {
+  color: #dffe00;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.development-notice a:hover {
+  text-decoration: underline;
+}
+
+/* Step Progress Bar Styles */
+.step-progress-container {
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 20px 0;
 }
 
 .progress-bar {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 100%; /* Adjust the width as needed */
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
 }
 
-.step {
-  width: 35px;
-  height: 35px;
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(21, 22, 25, 0.8);
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.step-circle.active {
+  border-color: #00d4ff;
+  background-color: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+.step-circle.completed {
+  border-color: #4ade80;
+  background-color: #4ade80;
+  color: #000;
+}
+
+.checkmark {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.step-info {
+  text-align: center;
+}
+
+.step-title {
+  color: #00d4ff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.step-description {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  font-family: "Inter", sans-serif;
+}
+
+.connecting-line {
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  flex: 1;
+  margin: 0 20px;
+  transition: background-color 0.3s ease;
+  margin-top: -25px;
+}
+
+.connecting-line.completed {
+  background-color: #4ade80;
+}
+
+/* Stepper Container */
+.stepper-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-content-container {
+  min-height: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Step Content Styles */
+.step-content {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.step-header {
+  margin-bottom: 30px;
+}
+
+.step-header h2 {
+  color: #00d4ff;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.step-subtitle {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Wallet Connection Styles */
+.wallet-connection-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.connect-btn-wallet-div {
+  margin: 20px 0;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 212, 255, 0.3);
+}
+
+.or-divider span {
+  color: #00d4ff;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  padding: 0 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wallet-address-div {
+  width: 100%;
+  max-width: 400px;
+}
+
+.wallet-address-div input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  background-color: rgba(21, 22, 25, 0.8);
+  box-shadow: none;
   color: white;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+}
+
+.wallet-address-div input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  background-color: rgba(21, 22, 25, 0.9);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.wallet-address-div input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.success-indicator {
+  margin-top: 15px;
+}
+
+.success_msg {
+  color: #4ade80;
+  border-left: 2px solid #4ade80;
+  padding-left: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+/* Telegram Content Styles */
+.telegram-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.telegram-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 25px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(21, 22, 25, 0.5);
+  backdrop-filter: blur(1px);
+  max-width: 400px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.telegram-card:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.telegram-icon {
+  flex-shrink: 0;
+}
+
+.telegram-info h3 {
+  color: #00d4ff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  margin: 0 0 5px 0;
+}
+
+.telegram-info p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+}
+
+.telegram-join-btn {
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.telegram-join-btn:hover {
+  background: linear-gradient(135deg, #4dd0e7, #00b8e6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+}
+
+.telegram-join-btn.joined {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.telegram-url {
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.telegram-url a {
+  color: #00d4ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.telegram-url a:hover {
+  color: #4dd0e7;
+  text-decoration: underline;
+}
+
+/* Faucet Content Styles */
+.faucet-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.requirements-check {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(21, 22, 25, 0.5);
+  width: 100%;
+  max-width: 400px;
+}
+
+.requirement-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.requirement-item.completed {
+  color: #4ade80;
+}
+
+.requirement-item.pending {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.requirement-icon {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1rem;
-  line-height: 1rem;
-  transition: background-color 0.3s ease;
-  position: relative;
+  flex-shrink: 0;
 }
 
-.step.active {
-  background-color: rgb(21, 22, 25); /* Change the active step color */
-  color: #dffe00;
-  border-color: #dffe00;
+.requirement-item.completed .requirement-icon {
+  background-color: #4ade80;
+  color: #000;
 }
 
-.line {
-  flex-grow: 1;
-  height: 3px;
-  background-color: rgb(21, 22, 25); /* Default line color */
-  margin: 0 -5px; /* Adjust the margin as needed */
-  transition: background-color 0.3s ease;
+.requirement-item.pending .requirement-icon {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.line.active {
-  background-color: #dffe00; /* Change line color when active */
+.recaptcha-container {
+  margin: 20px 0;
 }
 
-/* ... Other styles ... */
-.step_1 {
+.claim-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  margin: auto;
-}
-.step_1 > p {
-  text-align: center;
-}
-.button-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 50px;
+  gap: 15px;
 }
 
-.connect-btn-wallet-div {
-  margin-top: 30px;
-}
-.wallet-address-div {
-  width: 100%;
-}
-.wallet-address-div > input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
-  box-shadow: none;
-  color: white;
-  font-size: large;
-  border-radius: 8px;
-}
-.tweet-input-div {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  gap: 10px;
-}
-.tweet-input {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.tweet-input > input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
-  box-shadow: none;
-  color: white;
-  font-size: large;
-  border-radius: 8px;
-}
 .claim-faucet {
-  padding: 10px;
+  padding: 15px 40px;
   cursor: pointer;
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
-  color: #dffe00;
-  border-radius: 8px;
-  font-size: large;
+  border: 2px solid #00d4ff;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.05));
+  color: #00d4ff;
+  border-radius: 12px;
+  font-size: 1.2rem;
   font-weight: 700;
   font-family: "Chakra Petch", sans-serif;
   text-transform: uppercase;
-}
-.disabled {
-  pointer-events: none;
-  opacity: 0.5;
-}
-.claim-faucet:hover {
-  border-color: #dffe00;
-}
-.button-container button {
-  padding: 8px 15px;
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.button-container button:hover {
-  border-color: #dffe00;
-}
-.button-container button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.button-container button:disabled:hover {
-  border-color: rgb(45, 45, 45);
-}
-.tweet_link {
-  cursor: pointer;
-  color: #dffe00;
-  text-decoration: underline;
-  text-underline-offset: 8px;
-  transition: all 0.2s ease;
-}
-.tweet_link:hover {
-  transform: translateY(-2px);
+  transition: all 0.3s ease;
+  min-width: 200px;
 }
 
-.err_msg_div {
-  border: 1px solid rgb(45, 45, 45);
-  background-color: rgb(21, 22, 25);
-  padding: 30px;
-  margin: 30px 0;
-  border-radius: 8px;
-  width: 100%;
+.claim-faucet:hover {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
 }
+
+/* Navigation Buttons */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.step-nav-btn {
+  padding: 12px 24px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  background-color: rgba(21, 22, 25, 0.8);
+  color: #00d4ff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Chakra Petch", sans-serif;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.step-nav-btn:hover:not(.disabled) {
+  border-color: #00d4ff;
+  background-color: rgba(0, 212, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+}
+
+.step-nav-btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.step-indicator-mobile {
+  color: #00d4ff;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: none;
+}
+
+/* Confetti Overlay - Fixed Z-index */
+.confetti-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Error and Success Messages */
 p.error_msg {
   color: rgb(242, 104, 91);
   border-left: 2px solid rgb(242, 104, 91);
   padding-left: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
+
 p.tx_hash a {
-  color: #dffe00;
+  color: #00d4ff;
   text-underline-offset: 4px;
 }
+
 p.message {
   text-align: center;
   padding: 10px;
-  color: #dffe00;
+  color: #00d4ff;
   border-radius: 8px;
   font-size: large;
   letter-spacing: 2px;
@@ -186,16 +714,19 @@ p.message {
   text-transform: uppercase;
 }
 
-.footer {
-  margin-top: auto;
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 
-  margin: auto;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  border-top: 1px solid rgb(45, 45, 45);
+/* Existing styles for error messages and other components */
+.err_msg_div {
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  background-color: rgba(21, 22, 25, 0.8);
+  padding: 30px;
+  margin: 30px 0;
+  border-radius: 8px;
+  width: 100%;
 }
 
 .lb_div {
@@ -210,13 +741,15 @@ p.message {
   width: 90%;
   word-break: break-word;
 }
+
 .lb_title {
   padding: 10px;
-  color: #dffe00;
+  color: #00d4ff;
   font-size: x-large;
   font-weight: 600;
   font-family: "Chakra Petch", sans-serif;
 }
+
 .lb_msg {
   width: 70%;
   word-break: break-word;
@@ -227,16 +760,25 @@ p.message {
   font-weight: 500;
   font-family: "Inter", sans-serif;
 }
-h1.discord-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+
+.footer {
+  margin-top: auto;
+  margin: auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
 }
+
 .social-media {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
+
 .social-media > svg {
   cursor: pointer;
   width: 30px;
@@ -244,51 +786,92 @@ h1.discord-title {
   padding: 6px;
   border-radius: 8px;
   background-color: rgba(10, 10, 10, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.18);
-}
-.social-media > svg:hover {
-  border-color: #dffe00;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
-.twitter-follow {
-  width: 70%;
-  word-break: break-word;
-  padding: 10px;
-  line-height: 20px;
-  color: #ffffff;
-  font-size: large;
-  font-weight: 500;
-  font-family: "Inter", sans-serif;
-}
-.twitter-follow > a {
-  text-decoration: none;
-  font-size: x-large;
-  margin-left: 5px;
-  color: #dffe00;
-  font-family: "Chakra Petch", sans-serif;
+.social-media > svg:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .recaptcha {
   margin: 20px 0;
 }
+
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
-  .step_1 {
-    width: 100%;
+  .progress-bar {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
   }
-  .lb_div span,
-  .lb_div p {
-    width: 100%;
-    word-break: break-word;
+  
+  .step-indicator {
+    flex-direction: row;
+    text-align: left;
   }
+  
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+  
+  .connecting-line {
+    display: none;
+  }
+  
+  .step-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .step-subtitle {
+    font-size: 1rem;
+  }
+  
+  .telegram-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .wallet-address-div input {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .telegram-join-btn,
+  .claim-faucet {
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-width: 180px;
+  }
+  
+  .button-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .step-nav-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .step-indicator-mobile {
+    display: block;
+    order: -1;
+  }
+  
   .lb_title {
     font-size: large;
   }
+  
   .lb_msg {
     font-size: medium;
   }
-  h1.discord-title {
-    font-size: 1.2rem;
-  }
+  
   .footer {
     flex-direction: column;
     gap: 20px;

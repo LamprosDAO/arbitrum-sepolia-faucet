@@ -1,140 +1,168 @@
-import logo from "./logo.svg";
 import "./App.css";
-import img1 from "../src/asset/images/under_construction-removebg-preview.png";
-import Lottie from "react-lottie";
-import animationData from "../src/asset/animationData.json";
 import { useEffect, useState } from "react";
-// import the progress bar
-import StepProgressBar from "react-step-progress";
-// import the stylesheet
-import "react-step-progress/dist/index.css";
 import Confetti from "react-confetti";
 
 import "./styles/Steps.css";
-import Step01 from "./components/Step01";
 import { useAccount } from "wagmi";
-import ProgressBar from "./components/ProgressBar";
-import StepContent from "./components/StepContent";
-import ThreeJsComponent from "./components/ThreeJsComponent";
+import StepProgressBar from "./components/StepProgressBar";
+import WalletStep from "./components/WalletStep";
+import TelegramStep from "./components/TelegramStep";
+import FaucetStep from "./components/FaucetStep";
+import lamprosdao from "./asset/images/lampros-dao.png";
 
 function App() {
   const { address } = useAccount();
   const [addressInput, setAddressInput] = useState("");
-  const [twitterUrl, setTwitterUrl] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [hasJoinedTelegram, setHasJoinedTelegram] = useState(false);
+  const [addressWarning, setAddressWarning] = useState("");
+  
   const ethereumAddressRegex = /^(0x)?[0-9a-fA-F]{40}$/;
-  const twitterUrlRegex = /^https:\/\/x\.com\/\w+\/status\/\d+(\?.*)?$/;
-  const oldtwitterUrlRegex =
-    /^https:\/\/twitter\.com\/\w+\/status\/\d+(\?.*)?$/;
-  const [warnings, setWarnings] = useState({
-    firstStep: "",
-    secondStep: "",
-    thirdStep: "",
-  });
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // }
-  const [step, setStep] = useState(1);
+
+  // Determine recipient address and validation
+  const recipientAddress = address || (addressInput && ethereumAddressRegex.test(addressInput) ? addressInput : "");
+  const hasValidAddress = recipientAddress && ethereumAddressRegex.test(recipientAddress);
+
+  // Handle address validation warnings
+  useEffect(() => {
+    if (address) {
+      setAddressWarning("");
+    } else if (addressInput && !ethereumAddressRegex.test(addressInput)) {
+      setAddressWarning("Please enter a valid Ethereum address");
+    } else if (addressInput && ethereumAddressRegex.test(addressInput)) {
+      setAddressWarning("");
+    }
+  }, [address, addressInput]);
+
+  // Auto-advance from wallet step when address is connected
+  useEffect(() => {
+    if (currentStep === 1 && hasValidAddress) {
+      // Small delay to show success message before auto-advancing
+      const timer = setTimeout(() => {
+        if (currentStep === 1) {
+          setCurrentStep(2);
+        }
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [hasValidAddress, currentStep]);
 
   const handleNext = () => {
-    if (step === 1) {
-      if (address || addressInput) {
-        if (
-          ethereumAddressRegex.test(address) ||
-          ethereumAddressRegex.test(addressInput)
-        ) {
-          setStep(step + 1);
-        }
-      } else {
-        setWarnings({
-          firstStep: "Please connect you wallet",
-          secondStep: "",
-          thirdStep: "",
-        });
-      }
+    if (currentStep === 1 && !hasValidAddress) {
+      setAddressWarning("Please connect your wallet or enter a valid address");
+      return;
     }
-    if (step === 2) {
-      if (
-        twitterUrlRegex.test(twitterUrl) ||
-        oldtwitterUrlRegex.test(twitterUrl)
-      ) {
-        setStep(step + 1);
-      } else {
-        setWarnings({
-          ...warnings,
-          secondStep: "Please enter the correct tweeted URL",
-        });
-      }
+    if (currentStep === 2 && !hasJoinedTelegram) {
+      return; // User must join telegram first
     }
-    if (step === 3) {
-      setStep(step + 1);
+    if (currentStep < 3) {
+      setCurrentStep(currentStep + 1);
     }
   };
 
   const handlePrevious = () => {
-    if (step > 1) {
-      setStep(step - 1);
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
     }
   };
-  useEffect(() => {
-    setWarnings({
-      firstStep: "",
-      secondStep: "",
-      thirdStep: "",
-      forthStep: "",
-    });
-  }, [address, addressInput, twitterUrl]);
+
+  const renderCurrentStep = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <WalletStep
+            addressInput={addressInput}
+            setAddressInput={setAddressInput}
+            addressWarning={addressWarning}
+            hasValidAddress={hasValidAddress}
+            recipientAddress={recipientAddress}
+          />
+        );
+      case 2:
+        return (
+          <TelegramStep
+            hasJoinedTelegram={hasJoinedTelegram}
+            setHasJoinedTelegram={setHasJoinedTelegram}
+          />
+        );
+      case 3:
+        return (
+          <FaucetStep
+            recipientAddress={recipientAddress}
+            setShowConfetti={setShowConfetti}
+            showConfetti={showConfetti}
+            hasJoinedTelegram={hasJoinedTelegram}
+            hasValidAddress={hasValidAddress}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  const canProceedToNext = () => {
+    if (currentStep === 1) return hasValidAddress;
+    if (currentStep === 2) return hasJoinedTelegram;
+    return false;
+  };
+
   return (
     <div className="App">
       <nav className="navbar">
-        <span>Mode Faucet</span>
+        <img src={lamprosdao} alt="Lampros DAO" className="navbar-logo" />
+        <span className="navbar-title">Arbitrum Sepolia Faucet</span>
       </nav>
-      {/* <div className="canvas-component" id="canvas-parent">
-        <ThreeJsComponent />
-      </div> */}
+      
       <div className="main_container">
         <div className="card_container">
-          <div className="custom-stepper">
-            <ProgressBar step={step} />
-            <StepContent
-              step={step}
-              setAddressInput={setAddressInput}
-              warnings={warnings}
-              addressInput={addressInput}
-              setTwitterUrl={setTwitterUrl}
-              setShowConfetti={setShowConfetti}
-              showConfetti={showConfetti}
-            />
+          <div className="stepper-container">
+            <StepProgressBar currentStep={currentStep} />
+            
+            <div className="step-content-container">
+              {renderCurrentStep()}
+            </div>
+
             <div className="button-container">
               <button
                 onClick={handlePrevious}
-                disabled={step === 1}
-                className="previous"
+                disabled={currentStep === 1}
+                className={`step-nav-btn previous ${currentStep === 1 ? 'disabled' : ''}`}
               >
-                Previous
+                ← Previous
               </button>
+              
+              <div className="step-indicator-mobile">
+                Step {currentStep} of 3
+              </div>
+              
               <button
                 onClick={handleNext}
-                disabled={step === 4}
-                className="next"
+                disabled={currentStep === 3 || !canProceedToNext()}
+                className={`step-nav-btn next ${currentStep === 3 || !canProceedToNext() ? 'disabled' : ''}`}
               >
-                Next
+                Next →
               </button>
             </div>
           </div>
         </div>
       </div>
-      {showConfetti ? (
-        <Confetti width={window.innerWidth} height={window.innerHeight} />
-      ) : null}
+      
+      {showConfetti && (
+        <div className="confetti-overlay">
+          <Confetti 
+            width={window.innerWidth} 
+            height={window.innerHeight}
+            numberOfPieces={200}
+            recycle={false}
+            run={true}
+          />
+        </div>
+      )}
+      
       <div className="footer">
         <span>
-          Donate ETH with ❤️ to : 0x8BeE50Ad14f8f8F64F8e0E6541A5B87dd45E67C0
+          Donate ETH with ❤️ to : 0x5bc6f16Ca189D3C8d3Fbaf367611fB04a0B7b309
         </span>
         <div className="social-media">
           <svg
@@ -145,18 +173,18 @@ function App() {
           >
             <g
               fill="#ffffff"
-              fill-rule="nonzero"
+              fillRule="nonzero"
               stroke="none"
-              stroke-width="1"
-              stroke-linecap="butt"
-              stroke-linejoin="miter"
-              stroke-miterlimit="10"
-              stroke-dasharray=""
-              stroke-dashoffset="0"
-              font-family="none"
-              font-weight="none"
-              font-size="none"
-              text-anchor="none"
+              strokeWidth="1"
+              strokeLinecap="butt"
+              strokeLinejoin="miter"
+              strokeMiterlimit="10"
+              strokeDasharray=""
+              strokeDashoffset="0"
+              fontFamily="none"
+              fontWeight="none"
+              fontSize="none"
+              textAnchor="none"
             >
               <g transform="scale(5.12,5.12)">
                 <path d="M5.91992,6l14.66211,21.375l-14.35156,16.625h3.17969l12.57617,-14.57812l10,14.57813h12.01367l-15.31836,-22.33008l13.51758,-15.66992h-3.16992l-11.75391,13.61719l-9.3418,-13.61719zM9.7168,8h7.16406l23.32227,34h-7.16406z"></path>
