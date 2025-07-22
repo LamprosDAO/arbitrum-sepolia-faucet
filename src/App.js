@@ -169,7 +169,7 @@ function App() {
             viewBox="0,0,256,256"
             width="50px"
             height="50px"
-            onClick={() => window.open("https://twitter.com/Mode_Domains")}
+            onClick={() => window.open("https://x.com/lamprosdao")}
           >
             <g
               fill="#ffffff"
@@ -195,7 +195,7 @@ function App() {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 127.14 96.36"
-            onClick={() => window.open("https://discord.gg/XdmEgUDGGf")}
+            onClick={() => window.open("https://discord.gg/KrjR44f2")}
           >
             <path
               fill="#fff"
