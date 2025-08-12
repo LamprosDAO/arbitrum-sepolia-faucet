@@ -1,4 +1,5 @@
 import React from "react";
+import telegramQR from "../asset/images/telegram_qr.png";
 
 const TelegramStep = ({ hasJoinedTelegram, setHasJoinedTelegram }) => {
   const TELEGRAM_CHANNEL_URL = "https://t.me/+G55xO-18czg5NDA1";
@@ -35,12 +36,19 @@ const TelegramStep = ({ hasJoinedTelegram, setHasJoinedTelegram }) => {
           </div>
         </div>
 
-        <button 
-          className={`telegram-join-btn ${hasJoinedTelegram ? 'joined' : ''}`}
-          onClick={handleTelegramJoin}
-        >
-          {hasJoinedTelegram ? "✓ Joined Telegram" : "Join Telegram Channel"}
-        </button>
+        <div className="telegram-qr-section">
+          <div className="qr-code-container">
+            <img 
+              src={telegramQR} 
+              alt="Telegram QR Code" 
+              className="telegram-qr-code"
+              onClick={handleTelegramJoin}
+            />
+          </div>
+          <p className="qr-instruction">
+            Scan the QR code with your phone to join our Telegram channel
+          </p>
+        </div>
         
         <p className="telegram-url">
           Channel: <a href={TELEGRAM_CHANNEL_URL} target="_blank" rel="noopener noreferrer">

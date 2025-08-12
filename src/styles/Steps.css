@@ -456,6 +456,47 @@
   gap: 25px;
 }
 
+/* QR Code Section Styles */
+.telegram-qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.qr-code-container {
+  padding: 20px;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  background: rgba(21, 22, 25, 0.5);
+  backdrop-filter: blur(1px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.qr-code-container:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.telegram-qr-code {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.qr-instruction {
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  max-width: 300px;
+  line-height: 1.5;
+}
+
 .telegram-card {
   display: flex;
   align-items: center;
@@ -835,6 +876,20 @@ p.message {
     flex-direction: column;
     text-align: center;
     gap: 15px;
+  }
+  
+  .telegram-qr-code {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .qr-code-container {
+    padding: 15px;
+  }
+  
+  .qr-instruction {
+    font-size: 0.9rem;
+    max-width: 250px;
   }
   
   .wallet-address-div input {
