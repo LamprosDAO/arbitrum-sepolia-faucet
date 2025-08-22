@@ -17,7 +17,7 @@ function App() {
   const [currentStep, setCurrentStep] = useState(1);
   const [hasJoinedTelegram, setHasJoinedTelegram] = useState(false);
   const [addressWarning, setAddressWarning] = useState("");
-  
+
   const ethereumAddressRegex = /^(0x)?[0-9a-fA-F]{40}$/;
 
   // Determine recipient address and validation
@@ -113,12 +113,12 @@ function App() {
         <img src={lamprosdao} alt="Lampros DAO" className="navbar-logo" />
         <span className="navbar-title">Arbitrum Sepolia Faucet</span>
       </nav>
-      
+
       <div className="main_container">
         <div className="card_container">
           <div className="stepper-container">
             <StepProgressBar currentStep={currentStep} />
-            
+
             <div className="step-content-container">
               {renderCurrentStep()}
             </div>
@@ -131,11 +131,11 @@ function App() {
               >
                 ← Previous
               </button>
-              
+
               <div className="step-indicator-mobile">
                 Step {currentStep} of 3
               </div>
-              
+
               <button
                 onClick={handleNext}
                 disabled={currentStep === 3 || !canProceedToNext()}
@@ -147,11 +147,11 @@ function App() {
           </div>
         </div>
       </div>
-      
+
       {showConfetti && (
         <div className="confetti-overlay">
-          <Confetti 
-            width={window.innerWidth} 
+          <Confetti
+            width={window.innerWidth}
             height={window.innerHeight}
             numberOfPieces={200}
             recycle={false}
@@ -159,7 +159,7 @@ function App() {
           />
         </div>
       )}
-      
+
       <div className="footer">
         <span>
           Donate ETH with ❤️ to : 0x5bc6f16Ca189D3C8d3Fbaf367611fB04a0B7b309
